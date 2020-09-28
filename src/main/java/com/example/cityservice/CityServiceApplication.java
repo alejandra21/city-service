@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @EnableDiscoveryClient
-@SpringBootApplication(scanBasePackages= {"com.example.cityservice"})
+@SpringBootApplication(scanBasePackages= {"com.example.cityservice", "com.example.cityservice.config"})
 public class CityServiceApplication {
 
 	public static void main(String[] args) {
