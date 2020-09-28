@@ -2,11 +2,8 @@ package com.example.cityservice.db.entity;
 
 import java.util.Date;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,22 +14,13 @@ import lombok.NonNull;
 @Entity
 public class CitiesConnection {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-	
-	@ManyToOne(fetch=FetchType.LAZY)
+    @EmbeddedId
+    private ConnectionId connectionId;
+		
 	@NonNull
-	City cityOrigin;
-	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@NonNull
-	City cityDestination;
+	private Date departure;
 	
 	@NonNull
-	Date departure;
-	
-	@NonNull
-	Date arrival;
+	private Date arrival;
 	
 }
