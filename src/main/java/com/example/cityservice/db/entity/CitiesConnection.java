@@ -1,5 +1,6 @@
 package com.example.cityservice.db.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.EmbeddedId;
@@ -12,9 +13,14 @@ import lombok.NonNull;
 @Data
 @NoArgsConstructor
 @Entity
-public class CitiesConnection {
+public class CitiesConnection implements Serializable {
 
-    @EmbeddedId
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@EmbeddedId
     private ConnectionId connectionId;
 		
 	@NonNull

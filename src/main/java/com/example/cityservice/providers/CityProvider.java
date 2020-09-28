@@ -1,6 +1,7 @@
 package com.example.cityservice.providers;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -27,6 +28,17 @@ public class CityProvider {
 	public List<CityDto> getCities() {
 		List<City> cities = cityRepository.findAll();
 		return cities.stream().map(this::convertToDto).collect(Collectors.toList()) ;
+	}
+
+	public CityDto getCityByName(String name) {
+		
+		Optional<CityDto> city =  cityRepository.findByName(name);
+		
+		if ( city.isPresent() ) {
+			return city.get();
+		}
+		
+		return null;
 	}
 
 	
