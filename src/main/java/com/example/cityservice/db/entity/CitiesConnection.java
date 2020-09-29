@@ -6,6 +6,8 @@ import java.util.Date;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
+import org.hibernate.annotations.Check;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -13,6 +15,7 @@ import lombok.NonNull;
 @Data
 @NoArgsConstructor
 @Entity
+@Check(constraints = "city_origin_id != city_destination_id and arrival >= departure")
 public class CitiesConnection implements Serializable {
 
     /**

@@ -27,7 +27,7 @@ public class CityController {
     }
     
     @GetMapping("/city/{name}")
-    public CityDto getByName(@PathVariable("name") String name) {
+    public CityDto getCityByName(@PathVariable("name") String name) {
         return cityProvider.getCityByName(name);
     }
     
