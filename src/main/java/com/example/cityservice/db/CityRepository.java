@@ -9,6 +9,6 @@ import com.example.cityservice.providers.models.CityDto;
 
 public interface CityRepository  extends JpaRepository<City, Long>{
 
-	Optional<CityDto> findByName(String name);
+	Optional<City> findByName(String name);
 
 }

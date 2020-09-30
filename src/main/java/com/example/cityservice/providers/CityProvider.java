@@ -32,10 +32,10 @@ public class CityProvider {
 
 	public CityDto getCityByName(String name) {
 		
-		Optional<CityDto> city =  cityRepository.findByName(name);
+		Optional<City> city =  cityRepository.findByName(name);
 		
 		if ( city.isPresent() ) {
-			return city.get();
+			return convertToDto(city.get());
 		}
 		
 		return null;
