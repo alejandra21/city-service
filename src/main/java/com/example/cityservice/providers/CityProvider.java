@@ -12,7 +12,10 @@ import com.example.cityservice.db.CityRepository;
 import com.example.cityservice.db.entity.City;
 import com.example.cityservice.providers.models.CityDto;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Component
+@Slf4j
 public class CityProvider {
 
 	@Autowired
@@ -27,6 +30,7 @@ public class CityProvider {
 	
 	public List<CityDto> getCities() {
 		List<City> cities = cityRepository.findAll();
+		log.info(String.format("Number of cities in DB: %d",cities.size()));
 		return cities.stream().map(this::convertToDto).collect(Collectors.toList()) ;
 	}
 
@@ -35,9 +39,11 @@ public class CityProvider {
 		Optional<City> city =  cityRepository.findByName(name);
 		
 		if ( city.isPresent() ) {
+			log.info(String.format("City: %s is in DB",name));
 			return convertToDto(city.get());
 		}
 		
+		log.info(String.format("City: %s is NOT in DB",name));
 		return null;
 	}
 
