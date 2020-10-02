@@ -24,7 +24,7 @@ There are some script to populate the DB in `/db`
 You can run the following the next steps:
 
 1. `cd db/`
-2. `psql -h <host> -p <port> -U <username> -W <password> -d <database>`
+2. `psql -h <host> -p <port> -U <username> -W <password> -d <database> -f DATA.sql`
 
 Information about DB is in **config/** directory
   
